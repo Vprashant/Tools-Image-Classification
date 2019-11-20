@@ -11,4 +11,4 @@ Tools Image Classification is a Machine Leraning based Image Classifier and also
 
 # Results
 
-![alt text](https://github.com/Vprashant/Tools-Image-Classification/blob/master/Img_2.jpg)
+[![Watch the video](https://github.com/Vprashant/Tools-Image-Classification/blob/master/Img_3.jpg)](https://github.com/Vprashant/Tools-Image-Classification/blob/master/out.mp4)
