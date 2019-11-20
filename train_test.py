@@ -1,5 +1,6 @@
 #-----------------------------------
-# TRAINING OUR MODEL
+#MODEL TRAING FOR  
+#TRAINING OUR MODEL
 #-----------------------------------
 import h5py
 import numpy as np
@@ -40,24 +41,21 @@ h5_data    = 'output/data.h5'
 h5_labels  = 'output/labels.h5'
 scoring    = "accuracy"
 bins= 8
-
-# feature-descriptor-1: Hu Moments
+#----------------------------------
+# FEATURE DESCRIPTOR-1: Hu Moments
+#----------------------------------
 def fd_hu_moments(image):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     feature = cv2.HuMoments(cv2.moments(image)).flatten()
     return feature
-
+#--------------------------------------
+# FEATURE DESCRIPTOR-2 :HARLICK TEXTURE
+#--------------------------------------
 def fd_haralick(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     haralick = mahotas.features.haralick(gray).mean(axis=0)
     return haralick
 
-
-def fd_histogram(image, mask=None):
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    hist  = cv2.calcHist([image], [0, 1, 2], None, [bins, bins, bins], [0, 256, 0, 256, 0, 256])
-    cv2.normalize(hist, hist)
-    return hist.flatten()
 
 # get the training labels
 train_labels = os.listdir(train_path)
